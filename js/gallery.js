@@ -1,28 +1,23 @@
 /*Name this external file gallery.js*/
+function tabupdate(){
+   let image_list = document.querySelectorAll(".preview");
+   console.log(image_list);
+   for(i=0; i<image_list.length; i++){
+         let currentimgalt = image_list[i].alt;
+         image_list[i].setAttribute("tabindex", "0");
+         image_list[i].setAttribute("onfocus" , "upDate(this)");
+         image_list[i].setAttribute("onblur" , "unDo()");
+        console.log("current image:" + currentimgalt);
+        console.log("Tabindex value:" +image_list[i].getAttribute("tabindex"));
+   }
+}
 
 function upDate(previewPic){
- /* In this function you should 
-    1) change the url for the background image of the div with the id = "image" 
-    to the source file of the preview image
-    
-    2) Change the text  of the div with the id = "image" 
-    to the alt text of the preview image 
-    */
-
     document.getElementById('image').style.backgroundImage = "url('" + previewPic.src + "')";
     document.getElementById('image').innerHTML = previewPic.alt;
-  
-	}
+}
 
-	function unDo(){
-     /* In this function you should 
-    1) Update the url for the background image of the div with the id = "image" 
-    back to the orginal-image.  You can use the css code to see what that original URL was
-    
-    2) Change the text  of the div with the id = "image" 
-    back to the original text.  You can use the html code to see what that original text was
-    */
+function unDo(){   
    document.getElementById('image').style.backgroundImage = "url('')";
    document.getElementById('image').innerHTML = "Hover over an image below to display here.";
-		
-	}
+}
