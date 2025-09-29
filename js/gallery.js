@@ -5,8 +5,6 @@ function tabupdate(){
    for(i=0; i<image_list.length; i++){
          let currentimgalt = image_list[i].alt;
          image_list[i].setAttribute("tabindex", "0");
-         image_list[i].setAttribute("onfocus" , "upDate(this)");
-         image_list[i].setAttribute("onblur" , "unDo()");
         console.log("current image:" + currentimgalt);
         console.log("Tabindex value:" +image_list[i].getAttribute("tabindex"));
    }
